@@ -3,7 +3,7 @@ import "./NewProduct.css";
 
 function NewProduct() {
   return (
-    <div>
+    <div className="new-product">
       <ProductForm />
     </div>
   );

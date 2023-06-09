@@ -1,6 +1,7 @@
 import React from "react";
 import Products from "./components/Products";
 import "./App.css";
+import NewProduct from "./components/NewProduct";
 
 function App() {
   const products = [
@@ -32,6 +33,7 @@ function App() {
   // console.log(typeof products);
   return (
     <div>
+      <NewProduct />
       <Products items={products}></Products>
     </div>
   );
