@@ -1,7 +1,7 @@
 import React from "react";
 import ProductDate from "./ProductDate";
 import Card from "./Card";
-import "./ProductDate.css";
+import "./ProductItem.css";
 
 const ProductItem = (props) => {
   // console.log("In ProductItem :" + props.date);
@@ -9,7 +9,7 @@ const ProductItem = (props) => {
     <Card className="product-item">
       <ProductDate date={props.date} />
       <div className="product-item__description">
-        <h2>Nirma</h2>
+        <h2>{props.title}</h2>
       </div>
     </Card>
   );
