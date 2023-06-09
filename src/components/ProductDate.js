@@ -2,6 +2,7 @@ import React from "react";
 import "./ProductDate.css";
 
 const ProductDate = (props) => {
+  // console.log(`In ProductDate :  ${props.date}`);
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
   const year = props.date.getFullYear();
