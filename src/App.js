@@ -33,6 +33,7 @@ function App() {
   // console.log(typeof products);
 
   function printProductData(data) {
+    console.log("Inside App.js");
     console.log(data);
   }
   return (
