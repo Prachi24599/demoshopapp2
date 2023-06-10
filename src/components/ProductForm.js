@@ -32,12 +32,17 @@ function ProductForm() {
     <form onSubmit={submitHandler}>
       <div className="new-product__title">
         <label>Title</label>
-        <input type="text" onChange={titleChangeHandler}></input>
+        <input
+          type="text"
+          value={newTitle}
+          onChange={titleChangeHandler}
+        ></input>
       </div>
       <div className="new-product__date">
         <label>Date</label>
         <input
           type="date"
+          value={newDate}
           min="2023-01-01"
           max="2023-12-12"
           onChange={dateChangeHandler}
