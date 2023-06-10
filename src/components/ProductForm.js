@@ -2,19 +2,16 @@ import { useState } from "react";
 import "./ProductForm.css";
 
 function ProductForm(props) {
-  const [newTitle, setTitle] = useState("");
+  /*const [newTitle, setTitle] = useState("");
   const [newDate, setDate] = useState("");
-
   function titleChangeHandler(event) {
     // console.log(event.target.value);
     setTitle(event.target.value);
   }
-
   function dateChangeHandler(event) {
     setDate(event.target.value);
     // console.log(event.target.value);
   }
-
   function submitHandler(event) {
     event.preventDefault();
 
@@ -24,18 +21,40 @@ function ProductForm(props) {
     };
     // console.log(productData);
     props.onSave(productData);
-
     setTitle("");
     setDate("");
+  }*/
+
+  //Handling multiple states in single useState hook
+  const [state, setState] = useState({
+    newTitle: "",
+    newDate: "",
+  });
+
+  function titleChangeHandler(event) {
+    setState((prevState) => ({ ...prevState, newTitle: event.target.value }));
   }
 
+  function dateChangeHandler(event) {
+    setState((prevState) => ({ ...prevState, newDate: event.target.value }));
+  }
+
+  function submitHandler(event) {
+    event.preventDefault();
+    const productData = {
+      title: state.newTitle,
+      date: state.newDate,
+    };
+    props.onSave(productData);
+    setState((prevState) => ({ ...prevState, newTitle: "", newDate: "" }));
+  }
   return (
     <form onSubmit={submitHandler}>
       <div className="new-product__title">
         <label>Title</label>
         <input
           type="text"
-          value={newTitle}
+          value={state.newTitle}
           onChange={titleChangeHandler}
         ></input>
       </div>
@@ -43,7 +62,7 @@ function ProductForm(props) {
         <label>Date</label>
         <input
           type="date"
-          value={newDate}
+          value={state.newDate}
           min="2023-01-01"
           max="2023-12-12"
           onChange={dateChangeHandler}
