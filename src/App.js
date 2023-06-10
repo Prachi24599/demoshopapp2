@@ -31,9 +31,13 @@ function App() {
     },
   ];
   // console.log(typeof products);
+
+  function printProductData(data) {
+    console.log(data);
+  }
   return (
     <div>
-      <NewProduct />
+      <NewProduct prachi={printProductData} />
       <Products items={products}></Products>
     </div>
   );
