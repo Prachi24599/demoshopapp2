@@ -49,7 +49,7 @@ function ProductForm(props) {
     setState((prevState) => ({ ...prevState, newTitle: "", newDate: "" }));
   }
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className="new-product__controls">
       <div className="new-product__title">
         <label>Title</label>
         <input
